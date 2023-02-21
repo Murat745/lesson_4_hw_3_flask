@@ -1,5 +1,7 @@
 from flask import Flask, request
 from faker import Faker
+import requests
+
 
 app = Flask(__name__)
 
@@ -29,3 +31,10 @@ def user_dict():
         last_name = full_name.lower().split()[1]
         users[first_name] = f'{last_name}@mail.com'
     return users
+
+
+@app.route("/space/", methods=['GET'])
+def cosmonauts():
+    r = requests.get('http://api.open-notify.org/astros.json')
+    result = r.json()['number']
+    return f'Number of cosmonauts - {result}'
