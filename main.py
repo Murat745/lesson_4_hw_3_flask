@@ -4,6 +4,11 @@ from faker import Faker
 app = Flask(__name__)
 
 
+@app.route("/")
+def learning_flask():
+    return "<p> <h1>Here I'm going to learn Flask</h1> </p>"
+
+
 @app.route('/requirements/')
 def requirements():
     with open('requirements.txt') as reqs:
