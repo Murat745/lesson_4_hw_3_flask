@@ -38,9 +38,9 @@ def user_dict():
 def average():
     data = pd.read_csv("hw.csv")
     data.columns = ["Index", "Height(Inches)", "Weight(Pounds)"]
-    avr_height_cm = data.mean()[1]
-    avr_weight_kg = data.mean()[2]
-    return f"Average height: {avr_height_cm}\nAverage weight: {avr_weight_kg}"
+    avr_height_cm = data.mean()[1] * 2.54
+    avr_weight_kg = data.mean()[2] * 0.4536
+    return {"average height": avr_height_cm, "average weight": avr_weight_kg}
 
 
 @app.route("/space/")
