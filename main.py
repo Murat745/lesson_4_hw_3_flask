@@ -45,6 +45,6 @@ def average():
 
 @app.route("/space/")
 def cosmonauts():
-    r = requests.get('http://api.open-notify.org/astros.json')
-    result = r.json()['number']
-    return f'Number of cosmonauts - {result}'
+    r = requests.get("http://api.open-notify.org/astros.json")
+    result = r.json()["number"]
+    return f"Number of cosmonauts - {result}"
