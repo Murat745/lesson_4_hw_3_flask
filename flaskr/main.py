@@ -14,7 +14,7 @@ def learning_flask():
 
 @app.route("/requirements/")
 def requirements():
-    with open("requirements.txt") as reqs:
+    with open("../requirements.txt") as reqs:
         return reqs.read()
 
 
@@ -36,7 +36,7 @@ def user_dict():
 
 @app.route("/mean/")
 def average():
-    data = pd.read_csv("hw.csv")
+    data = pd.read_csv("../hw.csv")
     data.columns = ["Index", "Height(Inches)", "Weight(Pounds)"]
     avr_height_cm = data.mean()[1] * 2.54
     avr_weight_kg = data.mean()[2] * 0.4536
