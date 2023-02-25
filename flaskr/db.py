@@ -3,20 +3,6 @@ import click
 from flask import current_app, g
 
 
-def init_db():
-    db = get_db()
-
-    with current_app.open_resource('schema.sql') as file:
-        db.executescript(file.read().decode('utf8'))
-
-
-def fill_db():
-    db = get_db()
-    with current_app.open_resource('data_for_database.sql') as file:
-        db.executescript(file.read().decode('utf8'))
-    db.commit()
-
-
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(
@@ -24,6 +10,7 @@ def get_db():
             detect_types=sqlite3.PARSE_DECLTYPES
         )
         g.db.row_factory = sqlite3.Row
+
     return g.db
 
 
@@ -34,16 +21,32 @@ def close_db(e=None):
         db.close()
 
 
+def init_db():
+    db = get_db()
+
+    with current_app.open_resource('schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
+
+def fill_db():
+    db = get_db()
+
+    with current_app.open_resource('init.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
+
 @click.command('init-db')
 def init_db_command():
+    """Clear the existing data and create new tables."""
     init_db()
     click.echo('Initialized the database.')
 
 
 @click.command('fill-db')
 def fill_db_command():
+    """Clear the existing data and create new tables."""
     fill_db()
-    click.echo('The database is filled.')
+    click.echo('Fill the database.')
 
 
 def init_app(app):

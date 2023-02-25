@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Requirements{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<ol>
+    {% for index in text %}
+        <li>
+          {{index}}
+        </li>
+    {% endfor %}
+</ol>
+
+<a href="{{ url_for('main.root_page')}}">Root page</a>
+{% endblock %}

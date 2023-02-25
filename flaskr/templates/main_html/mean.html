@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Mean height and weight{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Average height in cm: {{mhc}}</p>
+<p>Average weight in kg: {{mwk}}</p>
+
+<a href="{{ url_for('main.root_page')}}">Root page</a>
+{% endblock %}
