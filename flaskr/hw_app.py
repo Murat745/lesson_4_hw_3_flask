@@ -26,8 +26,8 @@ def user_dict():
     user_list = []
     for i in range(int(count)):
         user_name = fake.name()
-        user_email = fake.ascii_free_email()
-        user_data = 'name: ' + user_name + ' email: ' + user_email
+        user_email = fake.email()
+        user_data = user_name.split()[0] + "_____" + user_email
         user_list.append(user_data)
     return render_template("generate_users.html", list_users=user_list)
 
