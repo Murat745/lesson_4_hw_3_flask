@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{% block title %}Space{% endblock %}</h1>
+<h1>{% block title %}The number of astronauts{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -15,5 +15,5 @@
 {% endfor %}
 </ol>
 
-<a href="{{ url_for('main.root_page')}}">Root page</a>
+<a href="{{ url_for('hw_app.learning_flask')}}">Home page</a>
 {% endblock %}

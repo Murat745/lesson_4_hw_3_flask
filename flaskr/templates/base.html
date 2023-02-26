@@ -1,13 +1,17 @@
-{% extends "bootstrap/base.html" %}
-{% block title %}Flask learning{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block navbar %}
-<nav class="navbar ">
-    <a class="navbar-link" href="/">Home</a>
-</nav>
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+</head>
 
-{% block content %}
-  <h1>Ivan Muratov</h1>
-{% endblock %}
+<body>
+<h1>Lessons 5 and 6, homeworks 3 and 4</h1>
+<header> {% block header %}{% endblock %} </header>
+{% block content %}{% endblock %}
+</body>
+
+</html>
 

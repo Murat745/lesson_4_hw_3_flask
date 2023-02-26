@@ -5,6 +5,7 @@ import requests
 
 
 bp = Blueprint('hw_app', __name__)
+fake = Faker()
 
 
 @bp.route("/")
@@ -14,14 +15,13 @@ def learning_flask():
 
 @bp.route("/requirements/")
 def requirements():
-    with open("../requirements.txt") as reqs:
+    with open("flaskr/requirements.txt") as reqs:
         req_s = reqs.read()
         return render_template("requirements.html", text=req_s.split('\n')[:-1])
 
 
 @bp.route("/generate-users/")
 def user_dict():
-    fake = Faker()
     users = {}
     quantity = 100
     args = request.args
@@ -32,12 +32,15 @@ def user_dict():
         first_name = full_name.split()[0]
         last_name = full_name.lower().split()[1]
         users[first_name] = f"{last_name}@mail.com"
-    return users
+        emails = f"{last_name}@mail.com"
+    return render_template("generate_users.html", list_users=users, name=f"{fake.name().split()[0]}",
+                           email=emails
+                           )
 
 
 @bp.route("/mean/")
 def average():
-    data = pd.read_csv("../hw.csv")
+    data = pd.read_csv("flaskr/hw.csv")
     data.columns = ["Index", "Height(Inches)", "Weight(Pounds)"]
     avr_height_cm = data.mean()[1] * 2.54
     avr_weight_kg = data.mean()[2] * 0.4536

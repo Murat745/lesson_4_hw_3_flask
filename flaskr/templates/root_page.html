@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>Root page</h1>
+<h1>Home page</h1>
 {% endblock %}
 
 {% block content %}
-<a href="{{ url_for('main.generate_users')}}">Generate users</a><br>
-<a href="{{ url_for('main.mean')}}">Mean value</a><br>
-<a href="{{ url_for('main.requirements')}}">Requirements</a><br>
-<a href="{{ url_for('main.space')}}">Space info</a><br>
-<a href="{{ url_for('tracks.names')}}">Unique names of artists</a><br>
-<a href="{{ url_for('tracks.tracks_genre')}}">All tracks in database</a><br>
+<a href="{{ url_for('hw_app.user_dict')}}">Generate users</a><br>
+<a href="{{ url_for('hw_app.average')}}">Average values of height and weight</a><br>
+<a href="{{ url_for('hw_app.requirements')}}">Requirements</a><br>
+<a href="{{ url_for('hw_app.cosmonauts')}}">The number of astronauts</a><br>
+<a href="{{ url_for('tracks.names')}}">Unique artists names</a><br>
+<a href="{{ url_for('tracks.tracks_genre')}}">All tracks</a><br>
 <a href="{{ url_for('tracks.tracks_sec')}}">Tracks length</a><br>
+<a href="{{ url_for('tracks.tracks_sec_statistics')}}">Tracks statistics</a>
 {% endblock %}
