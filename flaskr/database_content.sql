@@ -1,12 +1,19 @@
-INSERT INTO tracks (title, artist, genre, len_track)
+INSERT INTO tracks (title, artist, genre_id, len_track)
 VALUES
-  ('Flowers', 'Cyrus', 'pop', 200),
-  ('Die for you', 'Grande', 'pop', 232),
-  ('TQG', 'Shakira', 'pop', 197),
-  ('Kill Bill', 'SZA', 'pop', 153),
-  ('Creepin', 'Boomin', 'pop', 220),
-  ('As it was', 'Styles', 'pop', 230),
-  ('Unholy', 'Smith', 'rock', 310),
-  ('Sonata', 'Sebastian', 'classic', 258),
-  ('Gravity', 'BFMV', 'rock', 300),
-  ('Deuchland', 'Rammstein', 'rock', 200);
+  ('Flowers', 'Cyrus', 2, 200),
+  ('Die for you', 'Grande', 2, 232),
+  ('TQG', 'Shakira', 2, 197),
+  ('Kill Bill', 'SZA', 2, 153),
+  ('Creepin', 'Boomin', 2, 220),
+  ('As it was', 'Styles', 2, 230),
+  ('Unholy', 'Smith', 1, 310),
+  ('Sonata', 'Sebastian', 3, 258),
+  ('Gravity', 'BFMV', 1, 300),
+  ('Deuchland', 'Rammstein', 1, 200);
+
+INSERT INTO genre(id, title)
+VALUES
+      (1, 'rock'),
+      (2, 'pop'),
+      (3, 'classic')
+      ;

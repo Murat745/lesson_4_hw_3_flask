@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Root page</h1>
+{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('main.generate_users')}}">Generate users</a><br>
+<a href="{{ url_for('main.mean')}}">Mean value</a><br>
+<a href="{{ url_for('main.requirements')}}">Requirements</a><br>
+<a href="{{ url_for('main.space')}}">Space info</a><br>
+<a href="{{ url_for('tracks.names')}}">Unique names of artists</a><br>
+<a href="{{ url_for('tracks.tracks_genre')}}">All tracks in database</a><br>
+<a href="{{ url_for('tracks.tracks_sec')}}">Tracks length</a><br>
+{% endblock %}

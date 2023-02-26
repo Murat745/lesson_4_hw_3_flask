@@ -1,6 +1,6 @@
+from flask import current_app, g
 import sqlite3
 import click
-from flask import current_app, g
 
 
 def get_db():
@@ -31,7 +31,7 @@ def init_db():
 def fill_db():
     db = get_db()
 
-    with current_app.open_resource('init.sql') as f:
+    with current_app.open_resource('database_content.sql') as f:
         db.executescript(f.read().decode('utf8'))
 
 

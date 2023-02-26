@@ -26,18 +26,18 @@ def tracks_genre(genre=None):
         count = db.execute(f'''SELECT COUNT(tracks.id)
                        FROM tracks INNER JOIN genre ON tracks.genre_id=genre.id 
                        WHERE genre.title=?''', (genre, )).fetchone()
-    return render_template('tracks_db_html/tracks_genre.html', titles=tracks, count_of_tracks=count, genre=genre)
+    return render_template('tracks_html/tracks_genre.html', titles=tracks, count_of_tracks=count, genre=genre)
 
 
 @bp.route("/tracks-sec/")
 def tracks_sec():
     db = get_db()
-    tracks_and_sec = db.execute('SELECT title, length FROM tracks').fetchall()
-    return render_template('tracks_db_html/tracks_sec.html', track_plus_length=tracks_and_sec)
+    tracks_and_sec = db.execute('SELECT title, len_track FROM tracks').fetchall()
+    return render_template('tracks_html/tracks_len.html', track_plus_length=tracks_and_sec)
 
 
 @bp.route("/tracks-sec/statistics/")
 def tracks_sec_statistics():
     db = get_db()
-    average_and_sum_value = db.execute('SELECT AVG(length), SUM(length) FROM tracks').fetchall()
-    return render_template('tracks_db_html/tracks_statistics.html', value=average_and_sum_value)
+    average_and_sum_value = db.execute('SELECT AVG(len_track), SUM(len_track) FROM tracks').fetchall()
+    return render_template('tracks_html/tracks_statistics.html', value=average_and_sum_value)

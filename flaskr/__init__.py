@@ -1,9 +1,11 @@
 import os
 from flask import Flask
+from flask_bootstrap import Bootstrap
 
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    Bootstrap(app)
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
@@ -25,7 +27,7 @@ def create_app(test_config=None):
     from . import tracks
     app.register_blueprint(tracks.bp)
 
-    from . import main
-    app.register_blueprint(main.bp)
+    from . import hw_app
+    app.register_blueprint(hw_app.bp)
 
     return app

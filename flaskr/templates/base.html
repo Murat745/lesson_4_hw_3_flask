@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "bootstrap/base.html" %}
+{% block title %}Flask learning{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
-</head>
+{% block navbar %}
+<nav class="navbar ">
+    <a class="navbar-link" href="/">Home</a>
+</nav>
+{% endblock %}
 
-<body>
-<h1>Flaskr</h1>
-<header> {% block header %}{% endblock %} </header>
-{% block content %}{% endblock %}
-</body>
+{% block content %}
+  <h1>Ivan Muratov</h1>
+{% endblock %}
 
-</html>

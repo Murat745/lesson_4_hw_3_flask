@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Unique names{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Count of unique names: {{count_of_unique_names}}</p>
+
+{% for name in names %}
+<p>{{name[0]}}</p>
+{% endfor %}
+
+<a href="{{ url_for('main.root_page')}}">Root page</a>
+{% endblock %}

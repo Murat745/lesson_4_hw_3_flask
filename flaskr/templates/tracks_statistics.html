@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Tracks{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>
+{% for val in value %}
+    <p>The average length of tracks:</p>
+    {{ val[0] }} sec<br>
+    <p>The sum of tracks length:</p>
+    {{ val[1] }} sec
+{% endfor %}
+</p>
+
+<a href="{{ url_for('main.root_page')}}">Root page</a>
+{% endblock %}
