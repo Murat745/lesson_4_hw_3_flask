@@ -1,5 +1,5 @@
 # lesson_5_and_6_hw_3_and_4_flask_SQL
-* Clone the repo\n
+* Clone the repo
 * Activate the virtual environment
 * Install the dependencies from requirements.txt
 * Initialize the database
