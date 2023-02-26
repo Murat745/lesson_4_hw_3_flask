@@ -22,20 +22,14 @@ def requirements():
 
 @bp.route("/generate-users/")
 def user_dict():
-    users = {}
-    quantity = 100
-    args = request.args
-    if args.get("quantity"):
-        quantity = int(args.get("quantity"))
-    for i in range(quantity):
-        full_name = fake.name()
-        first_name = full_name.split()[0]
-        last_name = full_name.lower().split()[1]
-        users[first_name] = f"{last_name}@mail.com"
-        emails = f"{last_name}@mail.com"
-    return render_template("generate_users.html", list_users=users, name=f"{fake.name().split()[0]}",
-                           email=emails
-                           )
+    count = request.args.get('count', default='100', type=int)
+    user_list = []
+    for i in range(int(count)):
+        user_name = fake.name()
+        user_email = fake.ascii_free_email()
+        user_data = 'name: ' + user_name + ' email: ' + user_email
+        user_list.append(user_data)
+    return render_template("generate_users.html", list_users=user_list)
 
 
 @bp.route("/mean/")
